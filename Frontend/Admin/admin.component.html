@@ -1,0 +1,75 @@
+<h2>Leave Applications</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Total Days</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="6">
+                <h3>Approved</h3>
+            </td>
+
+
+        <tr *ngFor="let application of leaveApplications">
+            <ng-container *ngIf="application.status === 'APPROVED'">
+                <td>{{ application.employeeId }}</td>
+                <td>{{ application.employeeName }}</td>
+                <td>{{ application.fromDate | date }}</td>
+                <td>{{ application.toDate | date }}</td>
+                <td>{{ application.totalDays }}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="cancelLeave(application)">Cancel</button>
+                </td>
+            </ng-container>
+
+        </tr>
+
+
+        <tr>
+            <td>
+                <h3>Cancelled</h3>
+            </td>
+        </tr>
+
+        <tr *ngFor="let application of leaveApplications">
+            <ng-container *ngIf="application.status === 'CANCELLED'">
+                <td>{{ application.employeeId }}</td>
+                <td>{{ application.employeeName }}</td>
+                <td>{{ application.fromDate | date }}</td>
+                <td>{{ application.toDate | date }}</td>
+                <td>{{ application.totalDays }}</td>
+            </ng-container>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                <h3>Pending</h3>
+            </td>
+        </tr>
+
+        <tr *ngFor="let application of leaveApplications">
+            <ng-container *ngIf="application.status === ''">
+
+                <td>{{ application.employeeId }}</td>
+                <td>{{ application.employeeName }}</td>
+                <td>{{ application.fromDate | date }}</td>
+                <td>{{ application.toDate | date }}</td>
+                <td>{{ application.totalDays }}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="cancelLeave(application)">Cancel</button>
+                    <button type="button" class="btn btn-success" (click)="approveLeave(application)">Approve</button>
+                </td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
