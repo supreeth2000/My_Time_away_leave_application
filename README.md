@@ -5,6 +5,10 @@ Spring Boot based application that includes a full stack development of Employee
 
 # Frame works Used
 
-# 
+Frontend Frameworks:
+Angular, HTML ,CSS, Bootstrap, Material,Javacript
+
+Backend Frameworks:
+SpringBoot, Data JPA, MySQL, Hibernate
 
 
